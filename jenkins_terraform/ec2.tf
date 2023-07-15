@@ -23,7 +23,7 @@ resource "aws_security_group_rule" "egress_access" {
 }
 
 resource "aws_instance" "jenkins_instance" {
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   vpc_security_group_ids = [ "${aws_security_group.jenkins_security_group.id}" ]
   associate_public_ip_address = true
   user_data = "${file("../shared/Jenkins.txt")}"
